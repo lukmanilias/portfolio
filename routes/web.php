@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
+use App\Http\Controllers\Admin\PortfolioItemController;
+use App\Http\Controllers\Admin\PortfolioSectionSetting;
+use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TyperTitleController;
@@ -31,9 +35,6 @@ Route::get('/blog-details', function () {
     return view('frontend.blog-details');
 });
 
-Route::get('/portfolio-details', function () {
-    return view('frontend.portfolio-details');
-});
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -45,13 +46,30 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
+
+
+Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
+
+
 // 'prefix' => 'admin' is for URI prefix
 // 'as' => 'admin.' is for naming prefix
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('hero', HeroController::class);
     Route::resource('typer-title', TyperTitleController::class);
+
+    // Service route
     Route::resource('service', ServiceController::class);
 
+    // About route
     Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
     Route::resource('about', AboutController::class);
+
+    // Portfolio category route
+    Route::resource('category', CategoryController::class);
+
+    // Portfolio item route
+    Route::resource('portfolio-item', PortfolioItemController::class);
+
+    // Section setting route
+    Route::resource('portfolio-section-setting', PortfolioSectionSettingController::class);
 });

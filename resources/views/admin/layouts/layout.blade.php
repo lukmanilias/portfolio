@@ -25,7 +25,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/css/bootstrap-iconpicker.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/datatable.css') }}">
 
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
@@ -143,16 +143,18 @@
                                 if (data.status == 'error') {
                                     Swal.fire(
                                         'You can not delete!',
-                                        'This category contain items cant be deleted!',
+                                        'This category contain items and cannot be deleted!',
                                         'error'
                                     )
                                 } else {
-                                    Swal.fire(
-                                        'Deleted!',
-                                        'Your file has been deleted.',
-                                        'success'
-                                    )
-                                    window.location.reload();
+                                    Swal.fire({
+                                        title: 'Deleted!',
+                                        text: 'Your file has been deleted.',
+                                        icon: 'success',
+                                        confirmButtonText: 'OK'
+                                    }).then(() => {
+                                        window.location.reload();
+                                    });
                                 }
                             },
                             error: function(xhr, status, error) {
@@ -164,6 +166,7 @@
             })
         })
     </script>
+
 
     @stack('scripts')
 </body>

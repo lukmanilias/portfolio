@@ -37,6 +37,12 @@ body {
     font-weight: 600;
 }
 
+.img-fix {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
 /* ---------------------
 Button-Styles
 ----------------------- */
@@ -174,7 +180,7 @@ Button-Styles
     left: 0;
     z-index: 999;
     border-bottom: 1px solid #eeeeee17;
-    transition: all linear .3s;
+    transition: all linear 0.3s;
 }
 
 .main_menu .navbar-nav {
@@ -196,7 +202,7 @@ Button-Styles
 .main_menu .navbar-nav li a {
     position: relative;
     display: block;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 16px;
     font-weight: 600;
     text-transform: capitalize;
@@ -205,11 +211,11 @@ Button-Styles
     color: #fff;
     line-height: 80px;
     background: none;
-    transition: all linear .3s;
-    -webkit-transition: all linear .3s;
-    -moz-transition: all linear .3s;
-    -ms-transition: all linear .3s;
-    -o-transition: all linear .3s;
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
 }
 
 .main_menu .navbar-nav li:last-child a {
@@ -217,7 +223,7 @@ Button-Styles
 }
 
 .main_menu .navbar-nav li .active,
-.main_menu .navbar-nav li:hover>a {
+.main_menu .navbar-nav li:hover > a {
     color: #ff885e;
 }
 
@@ -239,11 +245,11 @@ Button-Styles
     color: #fff;
     margin-left: 20px;
     font-size: 16px;
-    transition: all linear .3s;
-    -webkit-transition: all linear .3s;
-    -moz-transition: all linear .3s;
-    -ms-transition: all linear .3s;
-    -o-transition: all linear .3s;
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
 }
 
 .main_menu .menu_icon li a:hover {
@@ -264,7 +270,7 @@ Button-Styles
     border-radius: 10px;
     transform: scaleY(0);
     transform-origin: top;
-    transition: all linear .3s;
+    transition: all linear 0.3s;
     -webkit-transform: scaleY(0);
     -moz-transform: scaleY(0);
     -ms-transform: scaleY(0);
@@ -273,7 +279,7 @@ Button-Styles
     z-index: 999;
 }
 
-.main_menu .sub_menu>li>a {
+.main_menu .sub_menu > li > a {
     color: #190844;
     margin: 0;
     line-height: 0;
@@ -293,7 +299,8 @@ Button-Styles
 .header-area {
     padding-top: 320px;
     padding-bottom: 210px;
-    background: url('../images/home-slider-2.jpg') no-repeat scroll top center/cover;
+    background: url("../images/home-slider-2.jpg") no-repeat scroll top
+        center/cover;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -443,7 +450,7 @@ Button-Styles
     font-size: 15px;
     color: #ff885e;
     border: 1px solid #ff885e;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     padding: 10px 30px;
     cursor: pointer;
@@ -587,7 +594,7 @@ blockquote {
 
 .bar_group__bar.thick:before {
     display: block;
-    content: '';
+    content: "";
     position: absolute;
     z-index: 0;
     width: 100%;
@@ -1088,7 +1095,7 @@ Footer-Area
     padding: 25px 15px;
     font-size: 16px;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
 }
 
@@ -1163,7 +1170,7 @@ Footer-Area
 }
 
 #scrollUp.active {
-    top: calc(100% - 110px)
+    top: calc(100% - 110px);
 }
 
 #scrollUp i {
@@ -1197,7 +1204,7 @@ Footer-Area
 13. Portfolio-Page
 -------------------------- */
 .site-header {
-    background-image: url('../images/site-header.jpg');
+    background-image: url("../images/site-header.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
@@ -1341,7 +1348,7 @@ Footer-Area
 
 .description .dots-list li:before {
     color: #ff885e;
-    font-family: 'Font Awesome 5 Pro';
+    font-family: "Font Awesome 5 Pro";
     content: "\f00c";
     font-weight: 900;
     margin-right: 10px;
@@ -1389,7 +1396,7 @@ Footer-Area
 
 .single-navigation .nav-link .text {
     font-size: 22px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     color: #282828;
     display: -webkit-box;
@@ -1431,8 +1438,8 @@ Footer-Area
     color: #3a3a3a;
 }
 
-.main_menu.menu_fix ul li>a i.plus:before,
-.main_menu.menu_fix ul li>a i.plus:after {
+.main_menu.menu_fix ul li > a i.plus:before,
+.main_menu.menu_fix ul li > a i.plus:after {
     background-color: #3a3a3a !important;
 }
 
@@ -1506,13 +1513,13 @@ Footer-Area
     background: #ff885e1f;
     margin-right: 7px;
     border-radius: 50%;
-    transition: all linear .3s;
-    -webkit-transition: all linear .3s;
-    -moz-transition: all linear .3s;
-    -ms-transition: all linear .3s;
-    -o-transition: all linear .3s;
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
 }
 
 .footer-widgets .text-box ul li a:hover {
-    background: #ff895e
+    background: #ff895e;
 }
