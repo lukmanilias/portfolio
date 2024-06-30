@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BlogSectionSettingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
@@ -16,6 +19,8 @@ use App\Http\Controllers\Admin\SkillItemController;
 use App\Http\Controllers\Admin\SkillSectionSettingController;
 use App\Http\Controllers\Admin\TyperTitleController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\TyperTitle;
 use Illuminate\Support\Facades\Route;
 
@@ -40,7 +45,6 @@ Route::get('/blog-details', function () {
     return view('frontend.blog-details');
 });
 
-
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -51,10 +55,9 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-
-
 Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
-
+Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
+Route::get('blog', [HomeController::class, 'blog'])->name('blog');
 
 // 'prefix' => 'admin' is for URI prefix
 // 'as' => 'admin.' is for naming prefix
@@ -92,4 +95,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     // Feedback section setting route
     Route::resource('feedback-section-setting', FeedbackSectionSettingController::class);
+
+    // Blog category route
+    Route::resource('blog-category', BlogCategoryController::class);
+
+    // Blog  route
+    Route::resource('blog', BlogController::class);
+
+    // Blog section setting  route
+    Route::resource('blog-section-setting', BlogSectionSettingController::class);
 });
