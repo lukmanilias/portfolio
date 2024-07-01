@@ -6,7 +6,7 @@
             <div class="section-header-back">
                 <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <h1>Feedback Section</h1>
+            <h1>Footer Social Link</h1>
 
         </div>
 
@@ -15,9 +15,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>All Feedback</h4>
+                            <h4>All Social Links</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin.feedback.create') }}" class="btn btn-success">Create New <i
+                                <a href="{{ route('admin.footer-social.create') }}" class="btn btn-success">Create New <i
                                         class="fas fa-plus"></i></a>
                             </div>
                         </div>
