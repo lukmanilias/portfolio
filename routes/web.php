@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogSectionSettingController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactSectionSettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FeedbackController;
@@ -58,6 +59,7 @@ require __DIR__ . '/auth.php';
 Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
 Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
 Route::get('blog', [HomeController::class, 'blog'])->name('blog');
+Route::post('contact', [HomeController::class, 'contact'])->name('contact');
 
 // 'prefix' => 'admin' is for URI prefix
 // 'as' => 'admin.' is for naming prefix
@@ -104,4 +106,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     // Blog section setting  route
     Route::resource('blog-section-setting', BlogSectionSettingController::class);
+
+    // Contact section setting  route
+    Route::resource('contact-section-setting', ContactSectionSettingController::class);
 });

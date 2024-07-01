@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Experience;
+use App\Models\ContactSectionSetting;
 use Illuminate\Http\Request;
 
-class ExperienceController extends Controller
+class ContactSectionSettingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $experience = Experience::query()->first();
-        return view('admin.experience.index', compact('experience'));
+        $contactTitle = ContactSectionSetting::first();
+        return view('admin.contact-setting.index', compact('contactTitle'));
     }
 
     /**
@@ -55,29 +55,22 @@ class ExperienceController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'image' => ['image', 'max:5000'],
-            'title' => ['required', 'max:200'],
-            'description' => ['required', 'max:1000'],
-            'phone' => ['nullable', 'max:100'],
-            'email' => ['nullable', 'max:100', 'email'],
+            'title' => ['required', 'max:100'],
+            'sub_title' => ['required', 'max:500'],
         ]);
 
-        $experience = Experience::find($id);
-        $imagePath = handleUpload('image', $experience);
-
-        Experience::updateOrCreate(
-            ['id' => $id],
+        ContactSectionSetting::updateOrCreate(
             [
-                'image' => !empty($imagePath) ? $imagePath : $experience->image,
+                'id' => $id,
+            ],
+            [
                 'title' => $request->title,
-                'description' => $request->description,
-                'phone' => $request->phone,
-                'email' => $request->email,
+                'sub_title' => $request->sub_title,
             ]
         );
 
         toastr()->success('Updated successfully', 'Congrats!');
-        return redirect()->back();
+        return redirect()->route('admin.contact-section-setting.index');
     }
 
     /**
