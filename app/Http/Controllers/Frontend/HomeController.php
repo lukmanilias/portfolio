@@ -44,8 +44,6 @@ class HomeController extends Controller
         $blogTitle = BlogSectionSetting::first();
         $contactTitle = ContactSectionSetting::first();
 
-        // dd($skill);
-
         return view('frontend.home', compact(
             'hero',
             'typertitles',
