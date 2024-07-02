@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg main_menu" id="main_menu_area">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <img src="images/logo.png" alt="Rabins">
+        <a class="navbar-brand" href="{{ url('/') }}">
+            <img src="{{ asset($generalSetting->logo) }}" alt="Rabins">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

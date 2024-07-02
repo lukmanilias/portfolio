@@ -146,6 +146,19 @@
                     </li>
                 </ul>
             </li>
+
+            <li><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="far fa-square"></i>
+                    <span>Settings</span></a></li>
+
+            {{-- <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i>
+                    <span>Settings</span></a>
+                <ul class="dropdown-menu" style="display: none;">
+                    <li><a class="nav-link" href="{{ route('admin.settings.index') }}">General Setting</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.footer-info.index') }}">Footer Information</a>
+                </ul>
+            </li> --}}
         </ul>
     </aside>
 </div>
