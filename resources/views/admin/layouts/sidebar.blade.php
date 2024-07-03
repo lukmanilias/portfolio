@@ -39,17 +39,11 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="nav-item active">
-                <a href="index.html" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            <li class="nav-item">
+                <a href="{{ route('dashboard') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Dropdown</span></a>
-                <ul class="dropdown-menu" style="display: none;">
-                    <li><a class="nav-link" href="">test</a></li>
 
-                </ul>
-            </li>
             <li class="menu-header">Sections</li>
 
             <li class="nav-item dropdown">
@@ -103,8 +97,7 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                        class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Blog</span></a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li><a class="nav-link" href="{{ route('admin.blog-category.index') }}">Category</a></li>
@@ -126,39 +119,38 @@
                 </ul>
             </li>
 
-            <li class="nav-item dropdown">
+            <li
+                class="nav-item dropdown {{ setSidebarActive(['admin.footer-social.*', 'admin.footer-info.*', 'admin.footer-contact-info.*', 'admin.footer-useful-link.*', 'admin.footer-help-link.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
                     <span>Footer</span></a>
                 <ul class="dropdown-menu" style="display: none;">
-                    <li><a class="nav-link" href="{{ route('admin.footer-social.index') }}">Social
+                    <li class="{{ setSidebarActive(['admin.footer-social.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.footer-social.index') }}">Social
                             Links</a></li>
-                    <li><a class="nav-link" href="{{ route('admin.footer-info.index') }}">Footer Information</a>
+                    <li class="{{ setSidebarActive(['admin.footer-info.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.footer-info.index') }}">Footer Information</a>
                     </li>
-                    <li><a class="nav-link" href="{{ route('admin.footer-contact-info.index') }}">Footer Contact
+                    <li class="{{ setSidebarActive(['admin.footer-contact-info.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.footer-contact-info.index') }}">Footer Contact
                             Information</a>
                     </li>
-                    <li><a class="nav-link" href="{{ route('admin.footer-useful-link.index') }}">Footer Useful
+                    <li class="{{ setSidebarActive(['admin.footer-useful-link.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.footer-useful-link.index') }}">Footer Useful
                             Links</a>
                     </li>
-                    <li><a class="nav-link" href="{{ route('admin.footer-help-link.index') }}">Footer Help
+                    <li class="{{ setSidebarActive(['admin.footer-help-link.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.footer-help-link.index') }}">Footer Help
                             Links</a>
                     </li>
                 </ul>
             </li>
 
-            <li><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="far fa-square"></i>
-                    <span>Settings</span></a></li>
+            <li class="menu-header">Settings</li>
 
-            {{-- <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                        class="fas fa-columns"></i>
-                    <span>Settings</span></a>
-                <ul class="dropdown-menu" style="display: none;">
-                    <li><a class="nav-link" href="{{ route('admin.settings.index') }}">General Setting</a></li>
-                    <li><a class="nav-link" href="{{ route('admin.footer-info.index') }}">Footer Information</a>
-                </ul>
-            </li> --}}
+            <li class="{{ setSidebarActive(['admin.settings.*']) }}"><a class="nav-link"
+                    href="{{ route('admin.settings.index') }}"><i class="far fa-square"></i>
+                    <span>Settings</span></a></li>
         </ul>
     </aside>
 </div>
