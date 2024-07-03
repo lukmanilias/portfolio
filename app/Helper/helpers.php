@@ -57,3 +57,15 @@ function getColors($index)
 
     return $colors[$index % count($colors)];
 }
+
+// Set sidebar active
+function setSidebarActive($route)
+{
+    if (is_array($route)) {
+        foreach ($route as $r) {
+            if (request()->routeIs($r)) {
+                return 'active';
+            }
+        }
+    }
+}
