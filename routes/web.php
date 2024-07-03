@@ -55,6 +55,8 @@ Route::get('/blog-details', function () {
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -79,7 +81,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('service', ServiceController::class);
 
     // About route
-    Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
     Route::resource('about', AboutController::class);
 
     // Portfolio category route
